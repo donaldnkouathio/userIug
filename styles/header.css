@@ -40,6 +40,10 @@ nav > .nav-item:hover, nav > .link_hover{
   .nav-item{
     margin-right: 15px;
   }
+
+  .logo_block > img{
+    height: 40px;
+  }
 }
 
 /* Tablette only */
@@ -56,6 +60,10 @@ nav > .nav-item:hover, nav > .link_hover{
   }
   .nav-item{
     margin-right: 10px;
+  }
+
+  .logo_block > img{
+    height: 50px;
   }
 }
 
@@ -77,6 +85,10 @@ nav > .nav-item:hover, nav > .link_hover{
   }
   .nav-item{
     margin-right: 15px;
+  }
+
+  .logo_block > img{
+    height: 60px;
   }
 }
 

@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="<?php echo _HTML_STYLES_PATH.'header.css'; ?>">
     <link rel="stylesheet" href="<?php echo _HTML_STYLES_PATH.'login.css'; ?>">
     <link rel="stylesheet" href="<?php echo _HTML_STYLES_PATH.'users.css'; ?>">
+
+    <script type="text/javascript" src="<?php echo _HTML_JS_PATH.'jquery.js' ?>"> </script>
   </head>
   <body>
     <div class='app_container'>
