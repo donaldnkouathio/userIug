@@ -4,21 +4,40 @@ body{
   font-size: 1.2em;
 }
 
-nav {
-}
-nav > .nav-item{
-  padding-bottom: 10px;
-  cursor: pointer;
-}
-nav > a, nav > a:visited{
-  color: black;
-  text-decoration: none;
-}
-nav > .nav-item:hover, nav > .link_hover{
-  color: var(--color_primary) !important;
-  border-bottom: 1px solid var(--color_primary);
+footer{
+  margin: 15px 0;
+  font-size: 0.8em;
+  text-align: center;
 }
 
+.margin_top_none{
+  margin-top: 0;
+}
+.margin_bottom_none{
+  margin-bottom: 0;
+}
+
+.form_block{
+  display: flex;
+  flex-direction: column;
+}
+.form_block > input{
+  margin-bottom: 15px;
+  padding: 5px;
+}
+.form_block > button{
+  padding: 5px;
+  color: white;
+  background-color: var(--color_primary);
+  border: none;
+  border-radius: 5px;
+}
+.form_block > button:hover{
+  background-color: var(--color_primary_dark);
+}
+.form_block > button:active{
+  transform: scale(0.95);
+}
 
 /***** Media Query *****/
 
@@ -27,28 +46,9 @@ nav > .nav-item:hover, nav > .link_hover{
   .app_container{
     width: 100%;
   }
-  header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  .logo_block{
-    font-size: 2em;
-  }
-  nav{
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-    width: 100%;
-    display: flex;
-    margin-top: 15px;
-    justify-content: space-around;
-  }
-  .nav-item{
-    margin-right: 15px;
+
+  .section{
+    padding: 0 15px;
   }
 }
 
@@ -58,19 +58,6 @@ nav > .nav-item:hover, nav > .link_hover{
     margin-left: 10%;
     width: 80%;
     max-width: 80%;
-  }
-  header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
-  .logo_block{
-    font-size: 3em;
-  }
-  .nav-item{
-    margin-right: 10px;
   }
 }
 
@@ -84,19 +71,6 @@ nav > .nav-item:hover, nav > .link_hover{
     margin-left: 20%;
     width: 60%;
     max-width: 60%;
-  }
-  header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-  .logo_block{
-    font-size: 4em;
-  }
-  .nav-item{
-    margin-right: 15px;
   }
 }
 

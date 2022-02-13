@@ -3,4 +3,8 @@
   --color_primary_dark : #006633;
   --color_secondary : #cc9900;
   --color_secondary_dark : #906000;
+  --color_danger : red; /* utilisé pour les actions de suppression, rouge par defaut */
+  --color_danger_dark : darkred;
+  --color_success : green; /* utilisé généralement pour les actions d'ajout, vert par defaut */
+  --color_success_dark : darkgreen;
 }

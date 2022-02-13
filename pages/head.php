@@ -7,6 +7,9 @@
 
     <link rel="stylesheet" href="<?php echo _HTML_STYLES_PATH.'vars.css'; ?>">
     <link rel="stylesheet" href="<?php echo _HTML_STYLES_PATH.'global.css'; ?>">
+    <link rel="stylesheet" href="<?php echo _HTML_STYLES_PATH.'header.css'; ?>">
+    <link rel="stylesheet" href="<?php echo _HTML_STYLES_PATH.'login.css'; ?>">
+    <link rel="stylesheet" href="<?php echo _HTML_STYLES_PATH.'users.css'; ?>">
   </head>
   <body>
     <div class='app_container'>
