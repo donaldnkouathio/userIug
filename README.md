@@ -22,8 +22,8 @@ Après avoir forké le projet, bien vouloir créer et nommer une base de donnée
 
 ## Quelques captures d'écran
 
-![Users app login screenshoot](/assets/screen/user3.png)
-![Users app home page screenshoot](/assets/screen/user.png)
-![Users app home page mobil screenshoot](/assets/screen/user4.png)
-![Users app add user screenshoot](/assets/screen/user1.png)
-![Users app screenshoot](/assets/screen/user2.png)
+![Users app login screenshoot](/assets/screen/iug3.png)
+![Users app home page screenshoot](/assets/screen/iug.png)
+![Users app home page mobil screenshoot](/assets/screen/iug4.png)
+![Users app add user screenshoot](/assets/screen/iug1.png)
+![Users app screenshoot](/assets/screen/iug2.png)
