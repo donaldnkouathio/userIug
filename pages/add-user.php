@@ -1,5 +1,5 @@
 <div class="modal_shadow add_modal">
-  <form class="modal_container">
+  <form class="modal_container" id="add_user">
     <div class="modal_body">
       <h1 class="margin_top_none">Add a new user</h1>
 
@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="modal_footer">
-      <button type="submit" class="btn btn_primary margin_left" name="addBtn">Add</button>
+      <button type="submit" class="btn btn_primary margin_left add_btn" name="addBtn">Add</button>
       <button type="button" name="addBtn" class="btn add_modal_close_btn">Cancel</button>
     </div>
   </form>
@@ -37,7 +37,7 @@
 
     </div>
     <div class="modal_footer_tinny">
-      <button type="button" class="btn btn_danger margin_left" name="lo_btn">Log out</button>
+      <button type="button" class="btn btn_danger margin_left log_out_btn" name="lo_btn">Log out</button>
       <button type="button" name="loBtn" class="btn lo_modal_close_btn">Cancel</button>
     </div>
   </div>
@@ -72,5 +72,48 @@
     //Log out
     toggleModal($(".lo_modal"), $(".lo_btn"), $(".lo_modal_close_btn, .lo_modal"));
 
+    //Add user
+    $('#add_user').submit(function(ev){
+      ev.preventDefault();
+      var formData = new FormData($('#add_user')[0]);
+
+      $.ajax({
+        url: "<?php echo _HTML_TRAITMENTS_PATH.'add-user.php'; ?>",
+        type: "POST",
+        data: formData,
+        beforeSend: function(){
+          //$('.add_btn').append('<button type="button" class="btn btn_primary margin_left" name="">Adding...</button>');
+          //$('.add_btn').prop("disabled", true);
+        },
+        success: function(ret){
+          alert("User added successfully !");
+          window.location.reload();
+        },
+        cache: false,
+        contentType: false,
+        processData: false
+      });
+    });
+
+
+    //Log out
+    $('.log_out_btn').click(function(){
+
+      $.ajax({
+        url: "<?php echo _HTML_TRAITMENTS_PATH.'logout.php'; ?>",
+        type: "POST",
+        beforeSend: function(){
+          //$('.add_btn').append('<button type="button" class="btn btn_primary margin_left" name="">Adding...</button>');
+          //$('.add_btn').prop("disabled", true);
+        },
+        success: function(ret){
+          if(ret=="ok"){
+            window.location.reload();
+          }else {
+            alert(ret);
+          }
+        }
+      });
+    });
   });
 </script>

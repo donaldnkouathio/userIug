@@ -1,25 +1,34 @@
+<?php
+  $users= $user->getUsers();
+?>
+
 <div class="section">
-  <h1 class="margin_top_none">List of Users</h1>
+  <span>Welcome <b><?php echo $_SESSION["name"].' '.$_SESSION["surname"]; ?></b></span>
+
+  <h2 class="">List of Users</h2>
 
   <div class="item_container">
     <div class="item_contain">
       <?php
-        for($i=1; $i<11; $i++){
+        foreach($users as $user){
       ?>
       <div class="item_block">
         <div class="row">
-          <span class="col">User No <?php echo $i ?></span>
+          <span class="col">User No <?php echo $user->getId(); ?></span>
         </div>
         <div class="row">
-          <span class="col_title">Nkouathio</span>
-          <span class="col_title">Donald</span>
+          <span class="col_title"><?php echo $user->getName(); ?></span>
+          <span class="col_title"><?php echo $user->getSurname(); ?></span>
         </div>
         <div class="row">
-          <span class="col">Donaldnkouathio@gmail.com</span>
+          <span class="col"><?php echo $user->getEtab(); ?></span>
+        </div>
+        <div class="row">
+          <span class="col"><?php echo $user->getEmail(); ?></span>
         </div>
         <div class="bottom_row">
-          <span class="col edit_btn edit_btn<?php echo $i; ?>">Edit</span>
-          <span class="col del_btn del_btn<?php echo $i; ?>">Delete</span>
+          <span class="col edit_btn edit_btn<?php echo $user->getId(); ?>">Edit</span>
+          <span class="col del_btn del_btn<?php echo $user->getId(); ?>">Delete</span>
         </div>
       </div>
       <?php } ?>
@@ -28,30 +37,32 @@
 </div>
 
 <?php
-  for($i=1; $i<11; $i++){
+  foreach($users as $user){
 ?>
-  <div class="modal_shadow edit_modal<?php echo $i; ?>">
-    <form class="modal_container">
+  <div class="modal_shadow edit_modal<?php echo $user->getId(); ?>">
+    <form class="modal_container" id="edit_form<?php echo $user->getId(); ?>">
       <div class="modal_body">
-        <h1 class="margin_top_none">Edit user No <?php echo $i; ?></h1>
+        <h1 class="margin_top_none">Edit user No <?php echo $user->getId(); ?></h1>
 
         <div class="form_block">
-          <label for="name<?php echo $i; ?>">Name</label>
-          <input type="text" name="name<?php echo $i; ?>" class="name" value="" required>
+          <label for="name">Name</label>
+          <input type="text" name="name" class="name" value="<?php echo $user->getName(); ?>" required>
 
-          <label for="surname<?php echo $i; ?>">Surname</label>
-          <input type="text" name="surname<?php echo $i; ?>" class="surname" value="" required>
+          <label for="surname">Surname</label>
+          <input type="text" name="surname" class="surname" value="<?php echo $user->getSurname(); ?>" required>
 
-          <label for="etab<?php echo $i; ?>">Etablissement</label>
-          <input type="text" name="etab<?php echo $i; ?>" class="etab" value="" required>
+          <label for="etab">Etablissement</label>
+          <input type="text" name="etab" class="etab" value="<?php echo $user->getEtab(); ?>" required>
 
-          <label for="email<?php echo $i; ?>">Email</label>
-          <input type="email" name="email<?php echo $i; ?>" class="email" value="" required>
+          <label for="email">Email</label>
+          <input type="email" name="email" class="email" value="<?php echo $user->getEmail(); ?>" required>
         </div>
+
+        <input type="hidden" name="id" value="<?php echo $user->getId(); ?>">
       </div>
       <div class="modal_footer">
-        <button type="submit" class="btn btn_primary margin_left" name="edit_btn<?php echo $i; ?>">Add</button>
-        <button type="button" name="addBtn" class="btn edit_modal_close_btn<?php echo $i; ?>">Cancel</button>
+        <button type="submit" class="btn btn_primary margin_left" name="edit_btn<?php echo $user->getId(); ?>">Edit</button>
+        <button type="button" name="addBtn" class="btn edit_modal_close_btn<?php echo $user->getId(); ?>">Cancel</button>
       </div>
     </form>
   </div>
@@ -60,20 +71,20 @@
 
 
 <?php //Delete
-  for($i=1; $i<11; $i++){
+  foreach($users as $user){
 ?>
-  <div class="modal_shadow delete_modal<?php echo $i; ?>">
-    <form class="modal_container_tinny">
+  <div class="modal_shadow delete_modal<?php echo $user->getId(); ?>">
+    <form class="modal_container_tinny"  id="del_form<?php echo $user->getId(); ?>">
       <div class="modal_body_tinny">
-        <h1 class="margin_top_none">Delete user No <?php echo $i; ?></h1>
+        <h2 class="margin_top_none">Delete user No <?php echo $user->getId(); ?></h2>
 
         <span>Are you sure to delete this user ?</span>
 
-        <input type="hidden" name="id" value="<?php echo $i; ?>">
+        <input type="hidden" name="id" value="<?php echo $user->getId(); ?>">
       </div>
       <div class="modal_footer_tinny">
-        <button type="submit" class="btn btn_danger margin_left" name="delete_btn<?php echo $i; ?>">Delete</button>
-        <button type="button" name="delBtn" class="btn delete_modal_close_btn<?php echo $i; ?>">Cancel</button>
+        <button type="submit" class="btn btn_danger margin_left" name="delete_btn<?php echo $user->getId(); ?>">Delete</button>
+        <button type="button" name="delBtn" class="btn delete_modal_close_btn<?php echo $user->getId(); ?>">Cancel</button>
       </div>
     </form>
   </div>
@@ -103,13 +114,58 @@
     }
 
     <?php
-      for($i=1; $i<11; $i++){
+      foreach($users as $user){
     ?>
     //Edit
-    toggleModal($(".edit_modal<?php echo $i; ?>"), $(".edit_btn<?php echo $i; ?>"), $(".edit_modal_close_btn<?php echo $i; ?>, .edit_modal<?php echo $i; ?>"));
+    toggleModal($(".edit_modal<?php echo $user->getId(); ?>"), $(".edit_btn<?php echo $user->getId(); ?>"), $(".edit_modal_close_btn<?php echo $user->getId(); ?>, .edit_modal<?php echo $user->getId(); ?>"));
+
+    $('#edit_form<?php echo $user->getId(); ?>').submit(function(ev){
+      ev.preventDefault();
+      var formData = new FormData($('#edit_form<?php echo $user->getId(); ?>')[0]);
+
+      $.ajax({
+        url: "<?php echo _HTML_TRAITMENTS_PATH.'edit-user.php'; ?>",
+        type: "POST",
+        data: formData,
+        beforeSend: function(){
+          //$('.add_btn').append('<button type="button" class="btn btn_primary margin_left" name="">Adding...</button>');
+          //$('.add_btn').prop("disabled", true);
+        },
+        success: function(ret){
+          alert("User edited successfully ! ");
+          window.location.reload();
+        },
+        cache: false,
+        contentType: false,
+        processData: false
+      });
+    });
 
     //Delete
-    toggleModal($(".delete_modal<?php echo $i; ?>"), $(".del_btn<?php echo $i; ?>"), $(".delete_modal_close_btn<?php echo $i; ?>, .delete_modal<?php echo $i; ?>"));
+    toggleModal($(".delete_modal<?php echo $user->getId(); ?>"), $(".del_btn<?php echo $user->getId(); ?>"), $(".delete_modal_close_btn<?php echo $user->getId(); ?>, .delete_modal<?php echo $user->getId(); ?>"));
+
+    $('#del_form<?php echo $user->getId(); ?>').submit(function(ev){
+      ev.preventDefault();
+      var formData = new FormData($('#del_form<?php echo $user->getId(); ?>')[0]);
+
+      $.ajax({
+        url: "<?php echo _HTML_TRAITMENTS_PATH.'del-user.php'; ?>",
+        type: "POST",
+        data: formData,
+        beforeSend: function(){
+          //$('.add_btn').append('<button type="button" class="btn btn_primary margin_left" name="">Adding...</button>');
+          //$('.add_btn').prop("disabled", true);
+        },
+        success: function(ret){
+          alert("User deleted successfully ! ");
+          window.location.reload();
+        },
+        cache: false,
+        contentType: false,
+        processData: false
+      });
+    });
+
     <?php } ?>
   });
 </script>

@@ -1,7 +1,7 @@
 <?php
   //Chemins par defaut du projet;
   //Root path
-  $root_path = $_SERVER["DOCUMENT_ROOT"]."/userIug/";
+  $root_path = $_SERVER["DOCUMENT_ROOT"]."userIug/";
   define('_PHP_ROOT_PATH', $root_path);
   define('_HTML_ROOT_PATH', "/userIug/");
 
@@ -28,4 +28,12 @@
   //class path
   define('_PHP_CLASS_PATH', $root_path."class/");
   define('_HTML_CLASS_PATH', "/userIug/class/");
+
+  //db path
+  define('_PHP_DB_PATH', $root_path."db/");
+  define('_HTML_DB_PATH', "/userIug/db/");
+
+  //traitments path
+  define('_PHP_TRAITMENTS_PATH', $root_path."traitments/");
+  define('_HTML_TRAITMENTS_PATH', "/userIug/traitments/");
 ?>
