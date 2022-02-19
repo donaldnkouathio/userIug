@@ -11,7 +11,7 @@ Ce projet est un tp de **Technologie et programmation web**. Il consiste à la r
 - SQL
 
 ## Installation
-Après avoir forké le projet, bien vouloir créer et nommer une base de donnée *users_iug*. Et ensuite importer la base données du même nom se trouvent dans le repertoire `/db/`
+Après avoir cloné le projet, bien vouloir créer et nommer une base de donnée *users_iug*. Et ensuite importer la base données du même nom se trouvent dans le repertoire `/db/`
 
 ## utilisateur par défaut
 - Email: user@gmail.com
@@ -22,8 +22,8 @@ Après avoir forké le projet, bien vouloir créer et nommer une base de donnée
 
 ## Quelques captures d'écran
 
-![Users app login screenshoot](/assets/screen/iug3.png)
-![Users app home page screenshoot](/assets/screen/iug.png)
-![Users app home page mobil screenshoot](/assets/screen/iug4.png)
-![Users app add user screenshoot](/assets/screen/iug1.png)
-![Users app screenshoot](/assets/screen/iug2.png)
+![Users app login screenshoot](/assets/screen/iug3.PNG)
+![Users app home page screenshoot](/assets/screen/iug.PNG)
+![Users app home page mobil screenshoot](/assets/screen/iug4.PNG)
+![Users app add user screenshoot](/assets/screen/iug1.PNG)
+![Users app screenshoot](/assets/screen/iug2.PNG)
