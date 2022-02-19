@@ -17,6 +17,11 @@
   ];
   $user= new User($current_user);
 
+  if(!isset($_SESSION["theme"])){
+    $_SESSION["theme"] = "light";
+  }
+
+  // Rooting
   if(isset($_GET["page"])){
     $file_page= _PHP_PAGES_PATH.$_GET["page"].'.php';
 
@@ -32,6 +37,7 @@
   else {
     $content = _PHP_PAGES_PATH.'/home.php';
   }
+  /////
 
   include(_PHP_PAGES_PATH.'head.php');
   include(_PHP_PAGES_PATH.'nav.php');

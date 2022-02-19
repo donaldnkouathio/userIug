@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html lang="fr" dir="ltr">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=4">
-    <title><?php echo ucfirst($utils->getCurrent_page()); ?> - userIug</title>
+    <title><?php echo ucfirst($utils->getCurrent_page()); ?> - Users App</title>
 
     <link rel="stylesheet" href="<?php echo _HTML_STYLES_PATH.'vars.css'; ?>">
+
+    <?php
+      if(isset($_SESSION["theme"])){
+        if($_SESSION["theme"] == "night"){
+    ?>
+      <link rel='stylesheet' href="<?php echo _HTML_STYLES_PATH.'themes/night.css'; ?>">
+    <?php }else { ?>
+      <link rel='stylesheet' href="<?php echo _HTML_STYLES_PATH.'themes/light.css'; ?>">
+    <?php } } ?>
+
     <link rel="stylesheet" href="<?php echo _HTML_STYLES_PATH.'global.css'; ?>">
     <link rel="stylesheet" href="<?php echo _HTML_STYLES_PATH.'header.css'; ?>">
     <link rel="stylesheet" href="<?php echo _HTML_STYLES_PATH.'login.css'; ?>">

@@ -115,5 +115,19 @@
         }
       });
     });
+
+    // Swhitch theme
+    $('.theme_btn').click(function(){
+      $.ajax({
+        url: "<?php echo _HTML_TRAITMENTS_PATH.'switch-theme.php'; ?>",
+        type: "POST",
+        beforeSend: function(){
+        },
+        success: function(ret){
+          window.location.reload();
+        }
+      });
+    });
+
   });
 </script>

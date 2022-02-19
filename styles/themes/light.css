@@ -1,0 +1,9 @@
+:root{
+  --color_text : black;
+  --color_text_2 : #444;
+  --color_bg : white;
+  --color_bg_2 : white;
+  --color_shadow : #c0c0c0;
+  --color_modal_shadow : rgba(0, 0, 0, 0.5);
+  --color_input_bg : #bbb;
+}

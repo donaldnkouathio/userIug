@@ -3,6 +3,7 @@ nav {
 nav > .nav-item{
   padding-bottom: 10px;
   cursor: pointer;
+  color: var(--color_text) !important;
 }
 nav > a, nav > a:visited{
   color: black;
