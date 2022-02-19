@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=4">
     <title><?php echo ucfirst($utils->getCurrent_page()); ?> - Users App</title>
 
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato'>
+
     <link rel="stylesheet" href="<?php echo _HTML_STYLES_PATH.'vars.css'; ?>">
 
     <?php

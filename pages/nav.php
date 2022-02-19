@@ -11,19 +11,19 @@
     <span class="nav-item add_user_btn">Add User</span>
     <span class="nav-item lo_btn">Log Out</span>
 
+    <?php } ?>
+
     <?php
       $theme= $_SESSION["theme"] == "light" ? "Dark Mode" : "Light Mode";
+      $icon_theme= $_SESSION["theme"] == "light" ? "brightness_4" : "brightness_5";
     ?>
     <span
       class="nav-item theme_btn"
       title="Switch app's theme to <?php echo $theme; ?>"
     >
-      <?php
-        echo ucfirst($theme);
-      ?>
+      <i class="material-icons" style="font-size: 1em"><?php echo $icon_theme; ?></i>
     </span>
-
-    <?php } ?>
+    
   </nav>
 </header>
 

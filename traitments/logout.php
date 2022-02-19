@@ -14,7 +14,11 @@
   ];
   $user = new User($current_user);
 
+  $theme_value = $_SESSION["theme"];
+
   $user->logOut();
+
+  $_SESSION["theme"] = $theme_value;
 
   echo "ok";
 
