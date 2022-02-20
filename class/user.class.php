@@ -70,28 +70,41 @@
 
     public function addUser(User $user){
       include(_PHP_DB_PATH."server-connect.php");
-      $query=$db->prepare("INSERT INTO user VALUES (?,?,?,?,?,?,NOW())");
 
-      $id=0;
-      $name=$user->getName();
-      $surname=$user->getSurname();
-      $email=$user->getEmail();
-      $password=sha1($user->getPassword());
-      $etab=$user->getEtab();
+      // Test if email allready exist
+      $query_test = $db->prepare("SELECT * FROM user WHERE email=?");
 
-      $query->bindParam(1,$id);
-      $query->bindParam(2,$name);
-      $query->bindParam(3,$surname);
-      $query->bindParam(4,$password);
-      $query->bindParam(5,$email);
-      $query->bindParam(6,$etab);
+      $email= $user->getEmail();
+      $query_test->bindParam(1,$email);
 
-      if($query->execute()){
-        return true;
-      }else{
+      if($query_test->execute() && $query_test->rowCount()==0){
+        // If email not found, add new user
+        $query=$db->prepare("INSERT INTO user VALUES (?,?,?,?,?,?,NOW())");
+
+        $id=0;
+        $name=$user->getName();
+        $surname=$user->getSurname();
+        $email=$user->getEmail();
+        $password=$user->getPassword();
+        $etab=$user->getEtab();
+
+        $query->bindParam(1,$id);
+        $query->bindParam(2,$name);
+        $query->bindParam(3,$surname);
+        $query->bindParam(4,$password);
+        $query->bindParam(5,$email);
+        $query->bindParam(6,$etab);
+
+        if($query->execute()){
+          return true;
+        }else{
           return false;
         }
+      }else{
+          return false;
       }
+
+    }
 
       public function removeUser($id){
         include(_PHP_DB_PATH."server-connect.php");

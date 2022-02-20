@@ -86,8 +86,13 @@
           //$('.add_btn').prop("disabled", true);
         },
         success: function(ret){
-          alert("User added successfully !");
-          window.location.reload();
+          if(ret == "ok"){
+            alert("User added successfully !");
+            window.location.reload();
+          }else {
+            alert(ret);
+          }
+
         },
         cache: false,
         contentType: false,

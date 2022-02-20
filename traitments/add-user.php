@@ -14,6 +14,10 @@
     ];
     $user = new User($current_user);
 
-    $user->addUser($user);
+    if($user->addUser($user)){
+      echo "ok";
+    }else {
+      echo "This email allready exist";
+    }
   }
 ?>
